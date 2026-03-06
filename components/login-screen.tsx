@@ -55,6 +55,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
             <Bot className="w-10 h-10 text-primary" />
           </div>
           <CardTitle className="text-2xl font-bold text-foreground">AI-powered claim resolution agent</CardTitle>
+          <p className="text-sm text-muted-foreground mt-2">Enter any username and password to continue</p>
         </CardHeader>
         <CardContent className="pt-6">
           <form onSubmit={handleSubmit} className="space-y-4">
