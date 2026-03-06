@@ -39,7 +39,7 @@ export function Sidebar({ user, onLogout }: SidebarProps) {
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <Bot className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="font-semibold text-sidebar-foreground text-sm">Claim Resolution Agent</span>
+            <span className="font-semibold text-sidebar-foreground text-sm">AI-powered claim resolution agent</span>
           </div>
         )}
         <button

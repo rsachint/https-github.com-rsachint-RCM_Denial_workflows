@@ -54,7 +54,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
           <div className="w-20 h-20 rounded-2xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
             <Bot className="w-10 h-10 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-bold text-foreground">Claim Resolution Agent</CardTitle>
+          <CardTitle className="text-2xl font-bold text-foreground">AI-powered claim resolution agent</CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
           <form onSubmit={handleSubmit} className="space-y-4">

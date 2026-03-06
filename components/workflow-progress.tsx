@@ -10,17 +10,18 @@ type Step = {
   id: string
   title: string
   phases: WorkflowPhase[]
+  agent: "AI" | "Human"
 }
 
 const steps: Step[] = [
-  { id: "1", title: "Claim Analysis", phases: ["nba-processing"] },
-  { id: "2", title: "Approve Resolution", phases: ["nba-approval"] },
-  { id: "3", title: "Retrieve Documents", phases: ["action-retrieving-docs"] },
-  { id: "4", title: "Review Documents", phases: ["doc-review", "smartsheets"] },
-  { id: "5", title: "Merge Documents", phases: ["action-merging"] },
-  { id: "6", title: "Review Merged PDF", phases: ["merge-review"] },
-  { id: "7", title: "Submit to Payer Portal", phases: ["action-submitting"] },
-  { id: "8", title: "Final Review & Case Notes", phases: ["case-notes"] },
+  { id: "1", title: "Claim Analysis", phases: ["nba-processing"], agent: "AI" },
+  { id: "2", title: "Approve Resolution", phases: ["nba-approval"], agent: "Human" },
+  { id: "3", title: "Retrieve Documents", phases: ["action-retrieving-docs"], agent: "AI" },
+  { id: "4", title: "Review Documents", phases: ["doc-review", "smartsheets"], agent: "Human" },
+  { id: "5", title: "Merge Documents", phases: ["action-merging"], agent: "AI" },
+  { id: "6", title: "Review Merged PDF", phases: ["merge-review"], agent: "Human" },
+  { id: "7", title: "Submit to Payer Portal", phases: ["action-submitting"], agent: "AI" },
+  { id: "8", title: "Final Review & Case Notes", phases: ["case-notes"], agent: "Human" },
 ]
 
 const phaseOrder: WorkflowPhase[] = [
@@ -100,7 +101,7 @@ export function WorkflowProgress({ phase }: WorkflowProgressProps) {
                   )}
                 </div>
 
-                <div className="flex-1 min-w-0 pt-1">
+                <div className="flex-1 min-w-0 pt-1 flex items-center justify-between gap-4">
                   <p
                     className={cn(
                       "text-sm font-medium",
@@ -109,6 +110,16 @@ export function WorkflowProgress({ phase }: WorkflowProgressProps) {
                   >
                     {step.title}
                   </p>
+                  <span
+                    className={cn(
+                      "text-xs font-semibold px-2 py-1 rounded whitespace-nowrap shrink-0",
+                      step.agent === "AI"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-green-100 text-green-700",
+                    )}
+                  >
+                    {step.agent}
+                  </span>
                 </div>
               </div>
             </div>
